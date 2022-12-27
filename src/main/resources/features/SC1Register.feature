@@ -1,4 +1,5 @@
 #SC1- User could register with valid data
+@register
 Feature: User could register with valid data
   Background: User Open browser and navigate to register page
     Given User open browser
@@ -6,7 +7,7 @@ Feature: User could register with valid data
 
 
   Scenario: User could register with valid data
-    When user enter valid data "Ahmed" , "Fouad", "ahmed12@gmail.com", "pass@1" and "pass@1"
+    When user enter valid data "Ahmed" , "Fouad", "ahmed0@gmail.com", "pass@1" and "pass@1"
     And user click on register button
     Then user go to successful register page
     When user clicks continue button

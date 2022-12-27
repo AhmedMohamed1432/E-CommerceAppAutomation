@@ -1,4 +1,5 @@
 #SC1- User could register with valid data
+@register
 Feature: User could register with valid data
   Background: User Open browser and navigate to register page
     Given User open browser
