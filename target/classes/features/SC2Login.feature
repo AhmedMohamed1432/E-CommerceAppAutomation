@@ -1,10 +1,10 @@
 #SC2- User could log in with valid email and password
 @login
-  Feature: User could log in with valid email and password
+  Feature: User could login with valid email and password
 
     Background:user open browser and go to login page
       Given User open browser
-      And  user navigate to login page
+#      And  user navigate to login page
 
 
 #    @First
@@ -18,9 +18,7 @@
 
 #    @Second
     Scenario: User could log in with valid email and password
-#      Given user navigate to login page
-      When user enters "ahmed1@gmail.com", and "pass@1"
-      And user clicks login button
-      Then user login success and navigate to home page
-
-
+      Given user navigates to login page
+      When user enter "lamiaa.adly09@gmail.com" and "MyP@ssword"
+      And user click on login button
+      Then user go to home page
