@@ -45,15 +45,14 @@ public class RegisterPage {
     }
     public void registerSteps(String FName, String LName, String email, String password, String passwordConfirm){
         firstName().clear();
-        lastName().clear();
-        email().clear();
-        password().clear();
-        confirmPassword().clear();
-
         firstName().sendKeys(FName);
+        lastName().clear();
         lastName().sendKeys(LName);
+        email().clear();
         email().sendKeys(email);
+        password().clear();
         password().sendKeys(password);
+        confirmPassword().clear();
         confirmPassword().sendKeys(passwordConfirm);
     }
 

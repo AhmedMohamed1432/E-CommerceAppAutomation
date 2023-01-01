@@ -18,7 +18,7 @@ public class RegistrationStepDefinition {
     Logger logger;
     @Given("User open browser")
     public void User_open_browser(){
-        System.out.println("INNNN");
+
         String chromePath = System.getProperty("user.dir") + "\\src\\main\\resources\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", chromePath);
 
@@ -73,10 +73,10 @@ public class RegistrationStepDefinition {
     public void navigate_to_homepage(){
         Assert.assertEquals("https://demo.nopcommerce.com/", driver.getCurrentUrl());
     }
-    @After
-    public void close_browser(){
-        driver.quit();
-    }
-
+//    @After
+//    public void close_browser(){
+//        driver.quit();
+//    }
+//
 
 }
