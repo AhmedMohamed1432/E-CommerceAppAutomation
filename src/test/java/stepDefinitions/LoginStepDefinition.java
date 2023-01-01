@@ -20,8 +20,7 @@ public class LoginStepDefinition {
 
     Logger logger;
     @Given("user navigate to login page")
-    public void User_open_browser(){
-
+    public void User_navigate_to_login(){
         driver = hooks.getDriver();
         if(driver!=null) {
             login = new LoginPage(driver);

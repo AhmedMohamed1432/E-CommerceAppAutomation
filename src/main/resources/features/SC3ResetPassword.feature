@@ -1,0 +1,1 @@
+#SC3- User could reset his/her password successfully
