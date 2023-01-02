@@ -5,7 +5,7 @@
       Given User open browser
       Given  user navigate to login page
 
-    Scenario:  User could reset his/her password
+    Scenario: User could reset his/her password
       Given user press forgotPassword link
       When user enters "Ahmed0@gmail.com"
       And user click reset button
