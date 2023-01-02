@@ -27,7 +27,7 @@ Feature: Logged user could add different products to compare list
 
     When user fill data
     And user click continue button
-    
+
     Then user go to shipping page
 
 

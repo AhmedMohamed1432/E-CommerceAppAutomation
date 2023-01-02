@@ -73,10 +73,5 @@ public class RegistrationStepDefinition {
     public void navigate_to_homepage(){
         Assert.assertEquals("https://demo.nopcommerce.com/", driver.getCurrentUrl());
     }
-//    @After
-//    public void close_browser(){
-//        driver.quit();
-//    }
-//
 
 }

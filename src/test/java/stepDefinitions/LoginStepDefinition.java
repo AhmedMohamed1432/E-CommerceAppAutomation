@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import io.cucumber.java.After;
+import io.cucumber.java.AfterAll;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -10,6 +11,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.annotations.AfterSuite;
 import pages.LoginPage;
 import pages.RegisterPage;
 
@@ -57,7 +59,8 @@ public class LoginStepDefinition {
     }
 
     @After
-    public void close_browser(){
+    public void close_browser() throws InterruptedException {
+        Thread.sleep(3000);
         driver.quit();
     }
 
