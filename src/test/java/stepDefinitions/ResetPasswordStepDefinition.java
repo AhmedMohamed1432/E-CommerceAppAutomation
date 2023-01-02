@@ -10,30 +10,21 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pages.LoginPage;
 import pages.ResetPasswordPage;
 
 public class ResetPasswordStepDefinition {
     WebDriver driver =null;
-
     ResetPasswordPage resetpass ;
-
     Logger logger;
     @Given("user press forgotPassword link")
     public void User_navigate_to_resetpassword(){
-        driver = hooks.getDriver();
-        if(driver!=null) {
-            resetpass = new ResetPasswordPage(driver);
-            driver.get("https://demo.nopcommerce.com/login?returnUrl=%2F");
             resetpass.forgotPasswordLink().click();
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-        }
     }
-
     @When("^user enters \"(.*)\"$")
     public void user_enter_email( String Email ){
         resetpass.resetPasswordSteps(Email);
