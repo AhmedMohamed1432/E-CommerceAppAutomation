@@ -2,7 +2,7 @@
 @login
   Feature: User could login with valid email and password
 
-    Background:user open browser and go to login page
+    Background: user open browser and go to login page
       Given User open browser
 #      And  user navigate to login page
 
