@@ -21,7 +21,7 @@ public class SelectCategoryStepDefinition {
     Logger logger;
 
     @When("user hover to Computers")
-    public void user_Select_category( String Product ){
+    public void user_Select_category( ){
         driver = hooks.getDriver();
         driver.get("https://demo.nopcommerce.com/");
         loggedUser = new LoggedUserHomePage(driver);

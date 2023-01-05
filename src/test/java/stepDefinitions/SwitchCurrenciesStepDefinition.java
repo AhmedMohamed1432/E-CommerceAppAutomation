@@ -19,7 +19,7 @@ public class SwitchCurrenciesStepDefinition {
     Logger logger;
 
     @When("user change customer currency")
-    public void user_change_currency( String Product ){
+    public void user_change_currency( ){
         driver = hooks.getDriver();
         driver.get("https://demo.nopcommerce.com/");
         loggedUser = new LoggedUserHomePage(driver);
