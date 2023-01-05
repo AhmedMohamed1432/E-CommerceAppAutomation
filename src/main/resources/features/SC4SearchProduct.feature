@@ -12,8 +12,8 @@
       Then user login success and navigate to home page
 
     Scenario: logged user search
-      Given user enters "Apple MacBook" in search field
-      When user press search button
+      When user enters "Apple MacBook" in search field
+      And user press search button
       Then product is displayed
 
 
