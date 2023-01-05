@@ -13,6 +13,4 @@ Feature: Logged user could add different products to compare list
 
   Scenario: User add products to compare list
     When user select Add to compare list button
-    Then user go to product page
-    When user select Add to cart button in product page
     Then user success to add selected product to compare list
