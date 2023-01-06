@@ -19,8 +19,8 @@ public class FilterWithColorStepDefinition {
     LoggedUserCategoryPage lUserCategory;
     Logger logger;
 
-    @When("user change customer currency")
-    public void user_change_currency(){
+    @When("user selects color")
+    public void user_Select_color(){
         driver = hooks.getDriver();
         driver.get("https://demo.nopcommerce.com/shoes");
         lUserCategory = new LoggedUserCategoryPage(driver);
@@ -34,8 +34,8 @@ public class FilterWithColorStepDefinition {
     }
 
 
-    @Then("Item price change")
-    public void price_change_success(){
+    @Then("user see products with selected colors")
+    public void select_color_product(){
         logger = LoggerFactory.getLogger(FilterWithColorStepDefinition.class);
         logger.info("Colored product Result:");
         String expectedUrl = "https://demo.nopcommerce.com/shoes?viewmode=grid&orderby=0&pagesize=6&specs=15";
