@@ -42,7 +42,7 @@ public class SelectDifferentTagStepDefinition {
         logger = LoggerFactory.getLogger(SelectDifferentTagStepDefinition.class);
         logger.info("Select Product Tag Result:");
 
-        String expectedUrl = "https://demo.nopcommerce.com/producttag/all";
+        String expectedUrl = "https://demo.nopcommerce.com/producttag/apparel-2";
 
         Assert.assertEquals("Selected product tag error!",
                 expectedUrl,
