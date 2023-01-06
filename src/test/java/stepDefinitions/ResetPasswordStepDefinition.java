@@ -18,12 +18,16 @@ public class ResetPasswordStepDefinition {
     Logger logger;
     @Given("user press forgotPassword link")
     public void User_navigate_to_resetpassword(){
-            resetpass.forgotPasswordLink().click();
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+        driver = hooks.getDriver();
+        resetpass = new ResetPasswordPage(driver);
+        //go to login page
+        driver.get("https://demo.nopcommerce.com/login?returnUrl=%2F");
+        resetpass.forgotPasswordLink().click();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
     @When("^user enters reset email \"(.*)\"$")
     public void user_enter_email( String Email ){
@@ -52,12 +56,6 @@ public class ResetPasswordStepDefinition {
         if(successResult.contains("Email with instructions has been sent to you.")){
             logger.info("Pass");
         }else logger.error("Fail reset password");
-    }
-
-    @Then("Close browser")
-    public void close_browser() throws InterruptedException {
-        Thread.sleep(3000);
-        driver.quit();
     }
 
 }

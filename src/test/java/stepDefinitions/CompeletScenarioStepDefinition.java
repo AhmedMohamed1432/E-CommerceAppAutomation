@@ -91,16 +91,16 @@ public class CompeletScenarioStepDefinition {
             billingPage.firstName().clear();
             billingPage.lastName().clear();
             billingPage.email().clear();
-            billingPage.firstName().sendKeys("Lamiaa");
-            billingPage.lastName().sendKeys("Adly");
-            billingPage.email().sendKeys("lamiaa.adly09@gmail.com");
+            billingPage.firstName().sendKeys("Ahmed");
+            billingPage.lastName().sendKeys("Fouad");
+            billingPage.email().sendKeys("Ahmed9@gmail.com");
             org.openqa.selenium.support.ui.Select countryList = new Select(billingPage.country());
             countryList.selectByVisibleText("Egypt");
 
             billingPage.city().sendKeys("Cairo");
             billingPage.address().sendKeys("October");
-            billingPage.postalCode().sendKeys("20005");
-            billingPage.phone().sendKeys("0111222333");
+            billingPage.postalCode().sendKeys("20020");
+            billingPage.phone().sendKeys("011111111");
 
             WebElement shipAddress = billingPage.shipSameAddress();
             if(!shipAddress.isSelected()){

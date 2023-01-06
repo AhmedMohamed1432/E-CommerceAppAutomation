@@ -90,4 +90,9 @@ public class LoggedUserHomePage {
         By compLink = By.cssSelector("div>p>a[href=\"/compareproducts\"]");
         return driver.findElement(compLink);
     }
+    public WebElement tags()
+    {
+        By taglink = By.cssSelector("a[href=\"/apparel-2\"]");
+        return driver.findElement(taglink);
+    }
 }

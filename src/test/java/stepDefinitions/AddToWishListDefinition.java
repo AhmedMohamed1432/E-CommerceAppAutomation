@@ -31,7 +31,7 @@ public class AddToWishListDefinition {
     }
 
     @When("user select Add to wishlist button in product page")
-    public void add_to_wishlist_button_PP(){
+    public void add_to_wishlist_button(){
         loggedUser.addToWishlistButton().click();
         try {
             Thread.sleep(2000);

@@ -40,7 +40,7 @@ public class SearchProductStepDefinition {
         logger = LoggerFactory.getLogger(SearchProductStepDefinition.class);
         logger.info("Search Result:");
 
-        String expectedRes = "https://demo.nopcommerce.com/search?q=Apple+MacBook+Pro+13-inch";
+        String expectedRes = "https://demo.nopcommerce.com/search?q=Apple+MacBook";
         String actualRes = driver.getCurrentUrl();
         Assert.assertEquals("Error in search", expectedRes,actualRes);
 
