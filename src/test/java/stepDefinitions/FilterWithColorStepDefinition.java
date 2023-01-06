@@ -48,11 +48,5 @@ public class FilterWithColorStepDefinition {
 
     }
 
-    @After
-    public void close_browser() throws InterruptedException {
-        Thread.sleep(3000);
-        driver.quit();
-    }
-
 
 }

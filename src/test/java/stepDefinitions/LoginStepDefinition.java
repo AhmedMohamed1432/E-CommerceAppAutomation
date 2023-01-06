@@ -27,7 +27,7 @@ public class LoginStepDefinition {
         }
     }
 
-    @When("^user enters \"(.*)\", and \"(.*)\"$")
+    @When("^user enters valid login data \"(.*)\", and \"(.*)\"$")
     public void user_enter_valid_login_data( String Email, String password ){
         login.loginSteps(Email,password);
 
@@ -55,11 +55,6 @@ public class LoginStepDefinition {
         }
     }
 
-    @After
-    public void close_browser() throws InterruptedException {
-        Thread.sleep(3000);
-        driver.quit();
-    }
 
 
 }

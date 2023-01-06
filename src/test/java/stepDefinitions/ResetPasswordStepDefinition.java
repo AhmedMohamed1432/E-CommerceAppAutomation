@@ -54,11 +54,5 @@ public class ResetPasswordStepDefinition {
         }else logger.error("Fail reset password");
     }
 
-    @After
-    public void close_browser() throws InterruptedException {
-        Thread.sleep(3000);
-        driver.quit();
-    }
-
 
 }

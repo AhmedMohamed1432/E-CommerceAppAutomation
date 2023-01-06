@@ -46,11 +46,6 @@ public class AddToCompareListDefinition {
         }else logger.error("Fail adding to list!");
     }
 
-    @After
-    public void close_browser() throws InterruptedException {
-        Thread.sleep(3000);
-        driver.quit();
-    }
 
 
 }

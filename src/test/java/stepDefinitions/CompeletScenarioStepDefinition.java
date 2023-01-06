@@ -288,11 +288,6 @@ public class CompeletScenarioStepDefinition {
             else logger.error("Fail");
 
         }
-    @After
-    public void close_browser() throws InterruptedException {
-        Thread.sleep(3000);
-        driver.quit();
-    }
 
 
 }
