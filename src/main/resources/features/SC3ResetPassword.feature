@@ -7,6 +7,7 @@
 
     Scenario: User could reset his/her password
       Given user press forgotPassword link
-      When user enters "Ahmed0@gmail.com"
+      When user enters reset email "Ahmed0@gmail.com"
       And user click reset button
       Then success message is displayed
+      Then Close browser

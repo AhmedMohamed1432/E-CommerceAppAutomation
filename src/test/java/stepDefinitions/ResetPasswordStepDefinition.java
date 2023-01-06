@@ -25,7 +25,7 @@ public class ResetPasswordStepDefinition {
                 throw new RuntimeException(e);
             }
     }
-    @When("^user enters \"(.*)\"$")
+    @When("^user enters reset email \"(.*)\"$")
     public void user_enter_email( String Email ){
         resetpass.resetPasswordSteps(Email);
     }
@@ -54,5 +54,10 @@ public class ResetPasswordStepDefinition {
         }else logger.error("Fail reset password");
     }
 
+    @Then("Close browser")
+    public void close_browser() throws InterruptedException {
+        Thread.sleep(3000);
+        driver.quit();
+    }
 
 }

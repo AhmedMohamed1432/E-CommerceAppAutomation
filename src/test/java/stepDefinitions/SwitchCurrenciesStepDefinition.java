@@ -50,11 +50,7 @@ public class SwitchCurrenciesStepDefinition {
 
     }
 
-    @Then("Close browser")
-    public void close_browser() throws InterruptedException {
-        Thread.sleep(3000);
-        driver.quit();
-    }
+
 
 
 }
