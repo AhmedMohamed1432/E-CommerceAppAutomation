@@ -7,7 +7,7 @@ Feature: Logged user could add different products to compare list
 
   Scenario: User could login with valid email and password
     Given user navigate to login page
-    When user enters valid login data "ahmed50@gmail.com", and "pass@1"
+    When user enters valid login data "ahmed501@gmail.com", and "pass@1"
     And user clicks login button
     Then user login success and navigate to home page
 

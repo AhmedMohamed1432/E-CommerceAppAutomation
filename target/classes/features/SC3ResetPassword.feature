@@ -5,6 +5,6 @@
 
     Scenario: User could reset his/her password
       Given user press forgotPassword link
-      When user enters reset email "Ahmed50@gmail.com"
+      When user enters reset email "Ahmed501@gmail.com"
       And user click reset button
       Then success message is displayed

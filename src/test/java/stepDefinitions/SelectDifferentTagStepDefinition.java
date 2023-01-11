@@ -9,11 +9,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pages.ProductTagPage;
+
 
 public class SelectDifferentTagStepDefinition {
     WebDriver driver =null;
-    ProductTagPage productTagPage;
     Logger logger;
 
     @Given("user navigate to product tags")
@@ -24,9 +23,7 @@ public class SelectDifferentTagStepDefinition {
 
     @When("user selects a product tag")
     public void select_product_tagg(){
-        productTagPage.tags().click();
-        //driver.findElement(By.linkText("Apparel")).click();
-        //driver.findElement(By.xpath("/html/body/div[6]/div[3]/div/div[2]/div/div[2]/ul/li[1]/a")).click();
+        driver.findElement(By.xpath("/html/body/div[6]/div[3]/div/div[2]/div/div[2]/ul/li[1]/a")).click();
 
         try {
             Thread.sleep(3000);
