@@ -14,7 +14,7 @@ public class ProductTagPage {
 
     public WebElement tags()
     {
-        By taglink = By.cssSelector("a[href=\"/apparel-2\"]");
-        return driver.findElement(taglink);
+        By tagpath = By.xpath("/html/body/div[6]/div[3]/div/div[2]/div/div[2]/ul/li[1]/a");
+        return driver.findElement(tagpath);
     }
 }

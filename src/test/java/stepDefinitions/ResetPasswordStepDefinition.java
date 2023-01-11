@@ -20,11 +20,10 @@ public class ResetPasswordStepDefinition {
     public void User_navigate_to_resetpassword(){
         driver = hooks.getDriver();
         resetpass = new ResetPasswordPage(driver);
-        //go to login page
         driver.get("https://demo.nopcommerce.com/login?returnUrl=%2F");
         resetpass.forgotPasswordLink().click();
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -55,7 +54,7 @@ public class ResetPasswordStepDefinition {
                 successResult.contains("Email with instructions has been sent to you."));
         if(successResult.contains("Email with instructions has been sent to you.")){
             logger.info("Pass");
-        }else logger.error("Fail reset password");
+        }else logger.error("Fail");
     }
 
 }

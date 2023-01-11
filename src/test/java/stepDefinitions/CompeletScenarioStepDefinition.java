@@ -1,6 +1,6 @@
 package stepDefinitions;
 
-import io.cucumber.java.After;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -43,7 +43,7 @@ public class CompeletScenarioStepDefinition {
             shoppingCart.checkoutButton().click();
 
             try {
-                Thread.sleep(2000);
+                Thread.sleep(3000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -56,7 +56,7 @@ public class CompeletScenarioStepDefinition {
 
             String expectedUrl = "https://demo.nopcommerce.com/onepagecheckout#opc-billing";
 
-            Assert.assertEquals("go to billing page error",
+            Assert.assertEquals("go to billing page error!",
                     expectedUrl,
                     driver.getCurrentUrl());
 
@@ -68,7 +68,6 @@ public class CompeletScenarioStepDefinition {
         @When("user fill data")
         public void fillData(){
             billingPage = new BillingPage(driver);
-
             try {
                 WebElement addressList = driver.findElement(
                         By.cssSelector("select[id=\"billing-address-select\"]"));
@@ -84,7 +83,7 @@ public class CompeletScenarioStepDefinition {
 
 
             try {
-                Thread.sleep(1000);
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -108,13 +107,12 @@ public class CompeletScenarioStepDefinition {
             }
 
         }
-
         @And("user click continue button")
         public void click_continue_button_FD(){
             billingPage.continueButton().click();
 
             try {
-                Thread.sleep(2000);
+                Thread.sleep(3000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -143,7 +141,7 @@ public class CompeletScenarioStepDefinition {
                 shippingAddress.continueButton().click();
 
                 try {
-                    Thread.sleep(2000);
+                    Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
@@ -161,23 +159,22 @@ public class CompeletScenarioStepDefinition {
         @When("press continue button in shipping page")
         public void press_continue_button_S(){
             shippingPage = new ShippingPage(driver);
-
             shippingPage.continueButton().click();
 
+        }
+
+        @Then("user go to payment method page")
+        public void go_paymentMethod_page(){
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-        }
-
-        @Then("user go to payment method page")
-        public void go_paymentMethod_page(){
             logger = LoggerFactory.getLogger(CompeletScenarioStepDefinition.class);
             logger.info("Payment Method Page Result:");
 
             String expectedUrl = "https://demo.nopcommerce.com/onepagecheckout#opc-payment_method";
-            Assert.assertEquals("payment method page error", expectedUrl,
+            Assert.assertEquals("payment method page error!", expectedUrl,
                     driver.getCurrentUrl());
 
             if(driver.getCurrentUrl().equals(expectedUrl)){
@@ -191,7 +188,7 @@ public class CompeletScenarioStepDefinition {
             paymentMethodPage.continueButton().click();
 
             try {
-                Thread.sleep(2000);
+                Thread.sleep(3000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -278,13 +275,13 @@ public class CompeletScenarioStepDefinition {
         @Then("user go to home page again")
         public void go_home_success(){
             logger = LoggerFactory.getLogger(CompeletScenarioStepDefinition.class);
-            logger.info("Order Completion Result:");
+            logger.info(" Complete scenario Result:");
 
             Assert.assertEquals("https://demo.nopcommerce.com/",
                     driver.getCurrentUrl());
 
             if(driver.getCurrentUrl().equals("https://demo.nopcommerce.com/"))
-                logger.info("Success");
+                logger.info("Pass");
             else logger.error("Fail");
 
         }

@@ -29,7 +29,7 @@ public class SearchProductStepDefinition {
     public void user_click_search_button(){
         loggedUser.searchItems().sendKeys(Keys.ENTER);
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

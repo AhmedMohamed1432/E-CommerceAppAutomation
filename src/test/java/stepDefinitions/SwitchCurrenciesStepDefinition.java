@@ -1,11 +1,8 @@
 package stepDefinitions;
 
-import io.cucumber.java.After;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -24,12 +21,12 @@ public class SwitchCurrenciesStepDefinition {
         driver.get("https://demo.nopcommerce.com/");
         loggedUser = new LoggedUserHomePage(driver);
         WebElement currencyList = loggedUser.CurrencyOption();
-        Select select = new Select(currencyList);
-        String option = select.getFirstSelectedOption().getText();
+        Select selectelemnt = new Select(currencyList);
+        String option = selectelemnt.getFirstSelectedOption().getText();
         System.out.println("Option was "+   option);
-        select.selectByVisibleText("Euro");
+        selectelemnt.selectByVisibleText("Euro");
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -41,12 +38,8 @@ public class SwitchCurrenciesStepDefinition {
         logger.info("Switch Currency Result:");
 
         String price = loggedUser.changeCurrency().getText();
-
-        WebElement currencyList = loggedUser.CurrencyOption();
-        Select select = new Select(currencyList);
-        String option = select.getFirstSelectedOption().getText();
         Assert.assertTrue("Euro error",price.contains("€"));
-        logger.info("Euro switched success");
+        logger.info("Currency changed..  Pass");
 
     }
 

@@ -13,5 +13,5 @@ Feature: Logged user could select different tags
 
   Scenario: User  select different tags
     Given user navigate to product tags
-    When user click product tag
+    When user selects a product tag
     Then user go to selected product tag page

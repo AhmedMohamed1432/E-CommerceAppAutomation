@@ -15,7 +15,7 @@ import pages.LoggedUserHomePage;
 
 public class SelectCategoryStepDefinition {
     WebDriver driver =null;
-    LoggedUserHomePage loggedUser;
+    LoggedUserHomePage loggedUserhome;
     WebElement categoryList, subCategory;
     Actions actions;
     Logger logger;
@@ -24,21 +24,19 @@ public class SelectCategoryStepDefinition {
     public void user_Select_category( ){
         driver = hooks.getDriver();
         driver.get("https://demo.nopcommerce.com/");
-        loggedUser = new LoggedUserHomePage(driver);
-
-        categoryList = loggedUser.categoryList();
+        loggedUserhome = new LoggedUserHomePage(driver);
+        categoryList = loggedUserhome.categoryList();
         actions = new Actions(driver);
         actions.moveToElement(categoryList);
     }
     @And("user select Notebooks category")
     public void user_select_notebooks (){
-        subCategory = loggedUser.subCategory();
+        //steps to access subcategory
+        subCategory = loggedUserhome.subCategoryaccess();
         actions.moveToElement(subCategory);
-
         actions.click().build().perform();
-
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -48,17 +46,14 @@ public class SelectCategoryStepDefinition {
     public void got_to_homePage(){
         logger = LoggerFactory.getLogger(SelectCategoryStepDefinition.class);
         logger.info("Select Category Result:");
-
-        String expecredRes = "https://demo.nopcommerce.com/notebooks";
-
+        String expectedRes = "https://demo.nopcommerce.com/notebooks";
         Assert.assertEquals("Select Category error!",
-                expecredRes, driver.getCurrentUrl());
+                expectedRes, driver.getCurrentUrl());
 
-        if(expecredRes.equals(driver.getCurrentUrl())){
+        if(expectedRes.equals(driver.getCurrentUrl())){
             logger.info("Pass");
         }else logger.error("Fail");
 
     }
-
 
 }

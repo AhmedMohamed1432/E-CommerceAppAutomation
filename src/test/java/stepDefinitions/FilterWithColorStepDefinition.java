@@ -16,23 +16,22 @@ import pages.LoggedUserHomePage;
 
 public class FilterWithColorStepDefinition {
     WebDriver driver =null;
-    LoggedUserCategoryPage lUserCategory;
+    LoggedUserCategoryPage loggedUserCategory;
     Logger logger;
 
     @When("user selects color")
     public void user_Select_color(){
         driver = hooks.getDriver();
         driver.get("https://demo.nopcommerce.com/shoes");
-        lUserCategory = new LoggedUserCategoryPage(driver);
-        lUserCategory.selectedColor().click();
+        loggedUserCategory = new LoggedUserCategoryPage(driver);
+        loggedUserCategory.selectedColor().click();
 
         try {
-            Thread.sleep(5000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
-
 
     @Then("user see products with selected colors")
     public void select_color_product(){

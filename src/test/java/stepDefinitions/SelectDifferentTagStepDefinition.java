@@ -1,37 +1,35 @@
 package stepDefinitions;
 
-import io.cucumber.java.After;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pages.LoggedUserHomePage;
 import pages.ProductTagPage;
 
 public class SelectDifferentTagStepDefinition {
     WebDriver driver =null;
     ProductTagPage productTagPage;
-    LoggedUserHomePage homepage;
     Logger logger;
-    WebElement productTag;
-    Actions actions;
+
     @Given("user navigate to product tags")
     public void product_tags_page(){
         driver = hooks.getDriver();
         driver.get("https://demo.nopcommerce.com/producttag/all");
     }
 
-    @When("user click product tag")
-    public void select_product_tag(){
+    @When("user selects a product tag")
+    public void select_product_tagg(){
         productTagPage.tags().click();
+        //driver.findElement(By.linkText("Apparel")).click();
+        //driver.findElement(By.xpath("/html/body/div[6]/div[3]/div/div[2]/div/div[2]/ul/li[1]/a")).click();
+
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -52,6 +50,4 @@ public class SelectDifferentTagStepDefinition {
             logger.info("Pass");
         }else logger.error("Fail");
     }
-
-
 }

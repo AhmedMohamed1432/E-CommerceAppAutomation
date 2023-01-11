@@ -21,7 +21,6 @@ public class RegistrationStepDefinition {
 
         String chromePath = System.getProperty("user.dir") + "\\src\\main\\resources\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", chromePath);
-
         driver = hooks.getDriver();
 
         try {
@@ -61,12 +60,11 @@ public class RegistrationStepDefinition {
                 "Your registration completed",
                 actualResult);
         if(actualResult.contains("Your registration completed")){
-            logger.info("Register Success");
-        }else logger.error("Register Fail");
+            logger.info("Pass");
+        }else logger.error("Fail");
     }
     @When("user clicks continue button")
     public void continue_button(){
-
         register.continueButton().click();
     }
     @Then("user navigate to home page")

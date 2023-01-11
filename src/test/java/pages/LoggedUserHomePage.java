@@ -32,7 +32,7 @@ public class LoggedUserHomePage {
         return driver.findElement(categoryList);
     }
 
-    public WebElement subCategory(){
+    public WebElement subCategoryaccess(){
         By subCategory = By.cssSelector("ul[class=\"top-menu notmobile\"]>li>ul[class=\"sublist first-level\"]>li>a[href=\"/notebooks\"]");
         return driver.findElement(subCategory);
     }

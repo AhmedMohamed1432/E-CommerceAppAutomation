@@ -1,6 +1,5 @@
 package stepDefinitions;
 
-import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -14,9 +13,7 @@ import pages.LoginPage;
 
 public class LoginStepDefinition {
     WebDriver driver =null;
-
     LoginPage login;
-
     Logger logger;
     @Given("user navigate to login page")
     public void User_navigate_to_login(){
@@ -50,8 +47,8 @@ public class LoginStepDefinition {
                     driver.getCurrentUrl());
 
             if (driver.getCurrentUrl().equals("https://demo.nopcommerce.com/"))
-                logger.info("Login success");
-            else logger.error("Login fail");
+                logger.info("Pass");
+            else logger.error("Fail");
         }
     }
 
