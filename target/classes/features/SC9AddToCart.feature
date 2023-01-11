@@ -1,13 +1,13 @@
 #SC9- Logged user could add different products to Shopping cart.
 @addToShoppingCart
-Feature: Logged user could select different tags
+Feature: Logged user could Add to shopping cart
   Background:
     Given User open browser
 
 
   Scenario: User could login with valid email and password
     Given user navigate to login page
-    When user enters valid login data "ahmed501@gmail.com", and "pass@1"
+    When user enters valid login data "ahmed100@gmail.com", and "pass@1"
     And user clicks login button
     Then user login success and navigate to home page
 
