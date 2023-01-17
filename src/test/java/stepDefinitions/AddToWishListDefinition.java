@@ -1,6 +1,5 @@
 package stepDefinitions;
 
-import io.cucumber.java.After;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -17,16 +16,14 @@ public class AddToWishListDefinition {
     @When("user select Add to Wishlist button")
     public void addToWish_button(){
         driver = hooks.getDriver();
-        if(driver!= null) {
-            driver.get("https://demo.nopcommerce.com/");
-            loggedUser = new LoggedUserHomePage(driver);
-            loggedUser.addToWishlist().click();
+        driver.get("https://demo.nopcommerce.com/");
+        loggedUser = new LoggedUserHomePage(driver);
+        loggedUser.addToWishlist().click();
 
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -39,23 +36,20 @@ public class AddToWishListDefinition {
             throw new RuntimeException(e);
         }
     }
-
     @Then("user success to add selected product to Wishlist")
     public void successAddingProduct(){
         logger = LoggerFactory.getLogger(AddToWishListDefinition.class);
         logger.info("Add to wishlist Result:");
-
         String successMsg = loggedUser.addToWishlistSuccess().getText();
         String expectedMsgPart = "The product has been added to your ";
         String wishlistName = loggedUser.wishLink().getText();
-
         Assert.assertTrue("Add product to wishlist error",
                 successMsg.contains(expectedMsgPart));
         Assert.assertEquals("wishlist",wishlistName);
 
         if(successMsg.contains(expectedMsgPart)){
-            logger.info("Adding to wishlist success");
-        }else logger.error("Fail adding to list!");
+            logger.info("Pass");
+        }else logger.error("Fail");
     }
 
 

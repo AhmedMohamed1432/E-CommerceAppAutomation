@@ -11,7 +11,7 @@ Feature: Logged user could select different Categories
     Then user login success and navigate to home page
 
   Scenario: Logged user can select categories
-    When user hover to Computers
+    When user go to Computers in list
     And user select Notebooks category
     Then user go to Notebooks category page
 

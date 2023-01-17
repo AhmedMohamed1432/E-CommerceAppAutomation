@@ -1,6 +1,5 @@
 package stepDefinitions;
 
-import io.cucumber.java.After;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -20,7 +19,6 @@ public class AddToCartStepDefinition {
         driver.get("https://demo.nopcommerce.com/");
         loggedUser = new LoggedUserHomePage(driver);
         loggedUser.addToCart().click();
-
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
@@ -37,29 +35,21 @@ public class AddToCartStepDefinition {
     @When("user select Add to cart button in product page")
     public void Add_to_cart_button_PP(){
         loggedUser.addToCartButton().click();
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     @Then("user success to add selected product to Shopping cart")
     public void successAddingProduct(){
         logger = LoggerFactory.getLogger(AddToCartStepDefinition.class);
         logger.info("Add to Shopping cart Result:");
-
         String successMsg = loggedUser.addToCartSuccess().getText();
         String expectedMsgPart = "The product has been added to your ";
         String shoppingCartName = loggedUser.cartLink().getText();
-
         Assert.assertTrue("Add product to shopping cart error",
                 successMsg.contains(expectedMsgPart));
         Assert.assertEquals("shopping cart", shoppingCartName);
-
         if(successMsg.contains(expectedMsgPart)){
-            logger.info("Adding to shopping cart success");
-        }else logger.error("Fail adding to list!");
+            logger.info("Pass");
+        }else logger.error("Fail ");
     }
 
 

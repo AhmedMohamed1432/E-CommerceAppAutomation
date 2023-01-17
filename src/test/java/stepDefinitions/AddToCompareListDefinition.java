@@ -1,6 +1,5 @@
 package stepDefinitions;
 
-import io.cucumber.java.After;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -20,9 +19,8 @@ public class AddToCompareListDefinition {
         driver.get("https://demo.nopcommerce.com/");
         loggedUser = new LoggedUserHomePage(driver);
         loggedUser.addToCompareList().click();
-
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -34,16 +32,16 @@ public class AddToCompareListDefinition {
         logger.info("Add to compare list Result:");
 
         String successMsg = loggedUser.addToCompareListSuccess().getText();
-        String expectedMsgPart = "The product has been added to your ";
+        String expectedMsgPart = "The product has been added to your";
         String compareName = loggedUser.compareLink().getText();
 
-        Assert.assertTrue("Add product to shopping cart error",
+        Assert.assertTrue("Add product to shopping cart Error!",
                 successMsg.contains(expectedMsgPart));
         Assert.assertEquals("product comparison", compareName);
 
         if(successMsg.contains(expectedMsgPart)){
-            logger.info("Adding to compare list success");
-        }else logger.error("Fail adding to list!");
+            logger.info("Pass");
+        }else logger.error("Fail");
     }
 
 

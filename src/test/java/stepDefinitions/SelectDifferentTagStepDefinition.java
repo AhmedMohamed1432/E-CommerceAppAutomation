@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 public class SelectDifferentTagStepDefinition {
     WebDriver driver =null;
     Logger logger;
@@ -24,7 +23,6 @@ public class SelectDifferentTagStepDefinition {
     @When("user selects a product tag")
     public void select_product_tagg(){
         driver.findElement(By.xpath("/html/body/div[6]/div[3]/div/div[2]/div/div[2]/ul/li[1]/a")).click();
-
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
@@ -36,14 +34,10 @@ public class SelectDifferentTagStepDefinition {
     public void selected_productTag_page(){
         logger = LoggerFactory.getLogger(SelectDifferentTagStepDefinition.class);
         logger.info("Select Product Tag Result:");
-
-        String expectedUrl = "https://demo.nopcommerce.com/apparel-2";
-
-        Assert.assertEquals("Selected product tag error!",
-                expectedUrl,
-                driver.getCurrentUrl());
-
-        if(expectedUrl.equals(driver.getCurrentUrl())){
+        String expeurl = "https://demo.nopcommerce.com/apparel-2";
+        Assert.assertEquals("Select product tag Error!",
+                expeurl, driver.getCurrentUrl());
+        if(expeurl.equals(driver.getCurrentUrl())){
             logger.info("Pass");
         }else logger.error("Fail");
     }

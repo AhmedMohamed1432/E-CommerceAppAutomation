@@ -1,6 +1,6 @@
 package stepDefinitions;
 
-import io.cucumber.java.After;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -8,7 +8,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.LoggedUserHomePage;
@@ -16,24 +16,21 @@ import pages.LoggedUserHomePage;
 public class SelectCategoryStepDefinition {
     WebDriver driver =null;
     LoggedUserHomePage loggedUserhome;
-    WebElement categoryList, subCategory;
     Actions actions;
     Logger logger;
 
-    @When("user hover to Computers")
-    public void user_Select_category( ){
-        driver = hooks.getDriver();
+    @When("user go to Computers in list")
+    public void user_goto_categories(){
+        driver= hooks.getDriver();
         driver.get("https://demo.nopcommerce.com/");
         loggedUserhome = new LoggedUserHomePage(driver);
-        categoryList = loggedUserhome.categoryList();
-        actions = new Actions(driver);
-        actions.moveToElement(categoryList);
+        actions= new Actions(driver);
+        actions.moveToElement(loggedUserhome.categoryList());
     }
+
     @And("user select Notebooks category")
-    public void user_select_notebooks (){
-        //steps to access subcategory
-        subCategory = loggedUserhome.subCategoryaccess();
-        actions.moveToElement(subCategory);
+    public void user_select_category(){
+        actions.moveToElement(loggedUserhome.subCategoryaccess());
         actions.click().build().perform();
         try {
             Thread.sleep(3000);
@@ -41,19 +38,18 @@ public class SelectCategoryStepDefinition {
             throw new RuntimeException(e);
         }
     }
-
     @Then("user go to Notebooks category page")
-    public void got_to_homePage(){
-        logger = LoggerFactory.getLogger(SelectCategoryStepDefinition.class);
+    public void go_to_homepage(){
+        logger= LoggerFactory.getLogger(SelectCategoryStepDefinition.class);
         logger.info("Select Category Result:");
-        String expectedRes = "https://demo.nopcommerce.com/notebooks";
-        Assert.assertEquals("Select Category error!",
-                expectedRes, driver.getCurrentUrl());
+        String expurl= "https://demo.nopcommerce.com/notebooks";
+        Assert.assertEquals("Select Category Error!",
+                expurl, driver.getCurrentUrl());
 
-        if(expectedRes.equals(driver.getCurrentUrl())){
+        if(expurl.equals(driver.getCurrentUrl())){
             logger.info("Pass");
         }else logger.error("Fail");
-
     }
+
 
 }
